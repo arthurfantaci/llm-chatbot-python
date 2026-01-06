@@ -1,0 +1,156 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    // ==========================================================================
+    // TYPE CHECKING (ty)
+    // ==========================================================================
+    {
+      "label": "ty: Type Check All",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/bin/ty",
+      "args": ["check", "."],
+      "group": "build",
+      "options": {
+        "env": {
+          "VIRTUAL_ENV": "${workspaceFolder}/.venv"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ty: Type Check Current File",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/bin/ty",
+      "args": ["check", "${file}"],
+      "group": "build",
+      "options": {
+        "env": {
+          "VIRTUAL_ENV": "${workspaceFolder}/.venv"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+
+    // ==========================================================================
+    // LINTING (Ruff)
+    // ==========================================================================
+    {
+      "label": "ruff: Lint All",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/bin/ruff",
+      "args": ["check", "."],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ruff: Lint and Fix All",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/bin/ruff",
+      "args": ["check", ".", "--fix"],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ruff: Format All",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/bin/ruff",
+      "args": ["format", "."],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+
+    // ==========================================================================
+    // TESTING (Pytest)
+    // ==========================================================================
+    {
+      "label": "pytest: Run All Tests",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/bin/pytest",
+      "args": ["-v"],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+
+    // ==========================================================================
+    // STREAMLIT
+    // ==========================================================================
+    {
+      "label": "streamlit: Run Chatbot",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/bin/streamlit",
+      "args": ["run", "bot.py"],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": [],
+      "isBackground": true
+    },
+    {
+      "label": "streamlit: Run Solution Bot",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/bin/streamlit",
+      "args": ["run", "solutions/bot.py"],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": [],
+      "isBackground": true
+    },
+
+    // ==========================================================================
+    // DEPENDENCY MANAGEMENT (uv)
+    // ==========================================================================
+    {
+      "label": "uv: Sync Dependencies",
+      "type": "shell",
+      "command": "uv",
+      "args": ["sync"],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "uv: Sync with Dev Dependencies",
+      "type": "shell",
+      "command": "uv",
+      "args": ["sync", "--group", "dev"],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  // Recommended extensions for Python + Neo4j + LangChain development
+  // VS Code Insiders will prompt to install these when opening the project
+  "recommendations": [
+    // ==========================================================================
+    // ESSENTIAL: Python Development
+    // ==========================================================================
+
+    // Microsoft Python extension - core Python support
+    "ms-python.python",
+
+    // Pylance - fast, feature-rich Python language server
+    "ms-python.pylance",
+
+    // Python Debugger - enhanced debugging support
+    "ms-python.debugpy",
+
+    // ==========================================================================
+    // LINTING & FORMATTING
+    // ==========================================================================
+
+    // Ruff - extremely fast Python linter and formatter
+    // Replaces: flake8, pylint, isort, black, pyupgrade, etc.
+    "charliermarsh.ruff",
+
+    // ==========================================================================
+    // NEO4J & DATABASE
+    // ==========================================================================
+
+    // Neo4j for VS Code - Cypher syntax highlighting and query execution
+    "neo4j-extensions.neo4j-for-vscode",
+
+    // ==========================================================================
+    // ENVIRONMENT & CONFIG FILES
+    // ==========================================================================
+
+    // DotENV - .env file syntax highlighting
+    "mikestead.dotenv",
+
+    // TOML - pyproject.toml syntax highlighting
+    "tamasfe.even-better-toml",
+
+    // ==========================================================================
+    // PRODUCTIVITY
+    // ==========================================================================
+
+    // GitLens - enhanced Git integration
+    "eamodio.gitlens",
+
+    // Error Lens - show errors inline
+    "usernamehw.errorlens",
+
+    // indent-rainbow - colorize indentation (helpful for Python)
+    "oderwat.indent-rainbow",
+
+    // autoDocstring - generate Google-style docstrings
+    "njpwerner.autodocstring"
+  ],
+
+  // Extensions that should NOT be recommended for this workspace
+  "unwantedRecommendations": [
+    // Deprecated/replaced by Ruff
+    "ms-python.black-formatter",
+    "ms-python.isort",
+    "ms-python.flake8",
+    "ms-python.pylint"
+  ]
+}

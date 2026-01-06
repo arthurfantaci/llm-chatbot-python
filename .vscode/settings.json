@@ -1,0 +1,140 @@
+{
+  // ==========================================================================
+  // PYTHON ENVIRONMENT
+  // ==========================================================================
+  // Use the project's virtual environment for all Python operations
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+
+  // Prevent VS Code from prompting to create a new environment
+  "python.createEnvironment.trigger": "off",
+
+  // ==========================================================================
+  // TYPE CHECKING (Pylance)
+  // ==========================================================================
+  // Enable basic type checking for better code quality
+  "python.analysis.typeCheckingMode": "basic",
+
+  // Add .venv to analysis paths so Pylance finds installed packages
+  "python.analysis.extraPaths": ["${workspaceFolder}/.venv/lib/python3.13/site-packages"],
+
+  // Auto-import completions from installed packages
+  "python.analysis.autoImportCompletions": true,
+
+  // Suppress warnings for libraries without type stubs (common in ML/AI libraries)
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportMissingTypeStubs": "none",
+    "reportUnknownMemberType": "none",
+    "reportUnknownArgumentType": "none"
+  },
+
+  // ==========================================================================
+  // LINTING & FORMATTING (Ruff - Native Extension)
+  // ==========================================================================
+  // Note: The Ruff extension now uses a native implementation (not ruff-lsp).
+  // Many old settings like ruff.lint.run and ruff.format.args are deprecated.
+  // See: https://docs.astral.sh/ruff/editors/settings/
+
+  // Enable the Ruff extension
+  "ruff.enable": true,
+
+  // Use the project's ruff binary (ensures version consistency)
+  "ruff.path": ["${workspaceFolder}/.venv/bin/ruff"],
+
+  // Use pyproject.toml for configuration (default behavior)
+  "ruff.configuration": "${workspaceFolder}/pyproject.toml",
+
+  // Show fix suggestions in the problems panel
+  "ruff.showSyntaxErrors": true,
+
+  // Organize imports using Ruff (replaces isort)
+  "ruff.organizeImports": true,
+
+  // Disable legacy Python linting (ruff handles this)
+  "python.linting.enabled": false,
+
+  // ==========================================================================
+  // FORMATTING
+  // ==========================================================================
+  // Use Ruff as the default Python formatter
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    }
+  },
+
+  // ==========================================================================
+  // TESTING (Pytest)
+  // ==========================================================================
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestArgs": [
+    "solutions",
+    "-v"
+  ],
+
+  // ==========================================================================
+  // EDITOR EXPERIENCE
+  // ==========================================================================
+  // Show inlay hints for parameter names and types
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.variableTypes": false,
+  "python.analysis.inlayHints.pytestParameters": true,
+
+  // Ruler at 88 characters (matches ruff/Black line length)
+  "editor.rulers": [88],
+
+  // Show whitespace in selections
+  "editor.renderWhitespace": "selection",
+
+  // Trim trailing whitespace on save
+  "files.trimTrailingWhitespace": true,
+
+  // Insert final newline (PEP 8 requirement)
+  "files.insertFinalNewline": true,
+
+  // ==========================================================================
+  // FILE ASSOCIATIONS
+  // ==========================================================================
+  "files.associations": {
+    ".env": "dotenv",
+    ".env.example": "dotenv",
+    "secrets.toml": "toml",
+    "secrets.toml.example": "toml",
+    "*.py": "python"
+  },
+
+  // Exclude from file explorer and search
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/.pytest_cache": true,
+    "**/*.egg-info": true,
+    ".ruff_cache": true
+  },
+
+  "search.exclude": {
+    "**/.venv": true,
+    "**/uv.lock": true
+  },
+
+  // ==========================================================================
+  // STREAMLIT SPECIFIC
+  // ==========================================================================
+  // Streamlit uses .streamlit/secrets.toml for configuration
+  // These settings help VS Code understand the project structure
+
+  // Terminal settings for running Streamlit
+  "terminal.integrated.env.osx": {
+    "PYTHONPATH": "${workspaceFolder}"
+  },
+  "terminal.integrated.env.linux": {
+    "PYTHONPATH": "${workspaceFolder}"
+  },
+  "terminal.integrated.env.windows": {
+    "PYTHONPATH": "${workspaceFolder}"
+  }
+}
